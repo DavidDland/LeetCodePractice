@@ -9,15 +9,15 @@ class Solution {
         for (int i = 0; i < chars.length; i++) {
             char currChar = chars[i];
             if (chars[i] == '(' || chars[i] == '{' || chars[i] == '[') {
-                stack.push(chars[i]);   //popping opening brackets 
+                stack.push(chars[i]);   //pushing opening brackets 
             } else {
 //test case if no opening brackets means no values get popped
                 if (stack.isEmpty()) {
                     return false;
                 }
-                char popped = stack.pop();
+                char popped = stack.pop(); //popping value from stack to check against curr index value
                 if (popped == '(') {
-                    if (currChar != ')') {
+                    if (currChar != ')') { //if curr value is not correct closed parentheses return false
                         return false;
                     }
                 } else if (popped == '{') {
