@@ -1,16 +1,8 @@
-#Brute Force n^2 || Sort then check nlogn + n || Dictionary , but is O(n) space which doesnt meet constraint
+#Brute Force n^2 || Sort then check nlogn + n || Dictionary , but is O(n) space which doesnt meet constraint || So we use xor bitwise
 class Solution:
-    def singleNumber(self, nums):
-        count_dict = {}
-        
-        # Count the occurrences of each number
+    def singleNumber(self, nums: List[int]) -> int:
+        xor = 0
         for num in nums:
-            if num in count_dict:
-                count_dict[num] += 1
-            else:
-                count_dict[num] = 1
+            xor ^= num
         
-        # Find the number that appears only once
-        for num, count in count_dict.items():
-            if count == 1:
-                return num
+        return xor
